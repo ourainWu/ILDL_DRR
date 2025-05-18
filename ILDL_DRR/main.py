@@ -78,11 +78,11 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataname', type=str, default='SCUT_FBP', metavar='N',
+    parser.add_argument('--dataname', type=str, default='Yeast_alpha', metavar='N',
                         help='the name of dataset [default: sample_data]')
     parser.add_argument('--obr', type=int, default=0.1, metavar='N',
                         help='the 10 percent labels in dataset are obeserved')
-    parser.add_argument('--para_hyper', nargs=3, type=int, default=[1, 0.01, 0.000001], metavar='N',
+    parser.add_argument('--para_hyper', nargs=3, type=int, default=[0.00001, 1, 0.1], metavar='N',
                         help='input batch size for training [default: [1, 1]]')
     parser.add_argument('--batch-size', type=int, default=256, metavar='N',
                         help='input batch size for training [default: 64]')
@@ -146,6 +146,6 @@ if __name__ == "__main__":
         print("%0.4f±%0.4f" % (np.array(metric)[:, i].mean(), np.array(metric)[:, i].std()))
 
     # name = f"results/Method_NO(3407)+{args.dataname}+{args.obr}+{args.para_hyper}.npy"
-    name = f"results/Method_NO(1e-1lr)+{args.dataname}+{args.obr}+{args.para_hyper}.npy"
+    name = f"results/ILDL_DRR+{args.dataname}+{args.obr}+{args.para_hyper}.npy"
     # name = f"results_incom/Method_NO(3407)+{args.dataname}+{args.obr}+{args.para_hyper}.npy"
-    np.save(name, np.array(metric))
+    # np.save(name, np.array(metric))
